@@ -8,7 +8,7 @@ import { OpportunitiesService } from '../services/opportunities/opportunities.se
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  displayedColumns: string[] = ['opportunity', 'action', 'accountName']
+  displayedColumns: string[] = [ 'opportunity',"amount", 'stage', 'accountName']
   dataSource: any[] = []
   user: any
   email: any
