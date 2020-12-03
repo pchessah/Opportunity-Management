@@ -3,7 +3,6 @@
     <h5>Account: </h5>
     <div  fxLayout="column">
         <button class="newOpportunity" [routerLink]="['/new-opportunity']" routerLinkActive="router-link-active"  >Create New Opportunity</button>
-        <h5>Opportunities Available</h5>
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
             <!--- Note that these columns can be defined in any order.

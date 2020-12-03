@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth/auth.service';
 import { UserService } from '../services/user/user.service';
 
 @Component({
@@ -12,13 +13,12 @@ export class HomeComponent implements OnInit {
   dataSource = []
   user: any;
 
-  constructor( private userService: UserService) { this.userService.getCurrentUserState().subscribe(item => console.log(item?.displayName)) }
+  constructor( private authService: AuthService, private userService: UserService) { }
 
   
 
   ngOnInit(): void {
-    
-    this.userService.getCurrentUser()
+    this.user = (this.authService.accountName); 
    
   }
 
