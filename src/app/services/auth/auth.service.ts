@@ -1,10 +1,9 @@
-import { query } from '@angular/animations'
 import { Injectable } from '@angular/core'
 import { AngularFireAuth } from '@angular/fire/auth'
 import { AngularFirestore } from '@angular/fire/firestore'
 import { Router } from '@angular/router'
 import * as firebase from 'firebase'
-import { first, tap } from 'rxjs/operators'
+
 
 @Injectable({
   providedIn: 'root',
@@ -46,7 +45,7 @@ export class AuthService {
       })
   }
 
-  getCurrentUser() {
+  getCurrentUser(): any {
     firebase.default.auth().onAuthStateChanged(async (user) => {
       this.loggedInUser = user?.email
       const query =  await this.firestore.firestore
@@ -56,17 +55,11 @@ export class AuthService {
        
       if (!query.empty) {
         const snapshot = query.docs[0]
-        const data = snapshot.data()
+        const data = snapshot.data()       
         this.accountName = data.accountName;
       }
-      return this.loggedInUser
-    })
-      
-  
-     
+    })  
   }
-
-  getAccountName() {}
 
   SignIn(email: string, password: string) {
     this.logIn(email, password)

@@ -32,17 +32,6 @@ export class UserService {
         console.log("failed");
       }
     })
-
-    // this.getCurrentUserState().pipe(
-    //   tap((user) => {
-    //     if (user) {
-    //       this.loggedInUser = user.displayName
-    //       console.log(user.displayName)
-    //     } else {
-    //       console.log('failed')
-    //     }
-    //   }),
-    // )
   }
 
   createUser(user: IUser) {

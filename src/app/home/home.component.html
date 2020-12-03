@@ -1,6 +1,6 @@
 <div class="dashboard">
-    <h5>User: {{user}} </h5>
-    <h5>Account: </h5>
+    <h5>User: {{email}}  </h5>
+    <h5>Account: {{user}} </h5>
     <div  fxLayout="column">
         <button class="newOpportunity" [routerLink]="['/new-opportunity']" routerLinkActive="router-link-active"  >Create New Opportunity</button>
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
