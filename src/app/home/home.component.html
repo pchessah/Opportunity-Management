@@ -1,1 +1,37 @@
-<p>home works!</p>
+<div class="dashboard">
+    <h5>User: {{user}} </h5>
+    <h5>Account: </h5>
+    <div  fxLayout="column">
+        <button class="newOpportunity" [routerLink]="['/new-opportunity']" routerLinkActive="router-link-active"  >Create New Opportunity</button>
+        <h5>Opportunities Available</h5>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="opportunity">
+              <th mat-header-cell *matHeaderCellDef> Opportunities </th>
+              <td mat-cell *matCellDef="let element"> {{element.opportunityName}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let element"> <button>Edit</button> <button>Delete</button> </td>
+            </ng-container>
+
+            <ng-container matColumnDef="accountName">
+                <th mat-header-cell *matHeaderCellDef> Account Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.accountName}} </td>
+              </ng-container>
+            
+          
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          
+          
+    </div>
+</div>

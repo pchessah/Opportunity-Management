@@ -1,0 +1,14 @@
+<div  fxLayout="row" fxLayoutAlign="center center">
+    <form [formGroup]="newOpportunityForm">  
+        <div class="container">
+          <h1>New Opportunity</h1>
+          <label for="uname"><b>Name</b></label>
+          <input type="text" placeholder="Enter Opportunity Name" formControlName="opportunityName" required>
+      
+          <label for="psw"><b>Details</b></label>
+          <textarea placeholder="Enter Details" formControlName="details" required> </textarea>
+      
+          <button (click)="save()" type="submit">Save</button>       
+        </div>
+      </form>
+  </div>
