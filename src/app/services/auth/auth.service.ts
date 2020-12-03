@@ -25,7 +25,7 @@ export class AuthService {
   // Sign in with email/password
   SignIn(email: string, password: string) {
     return this.afAuth.signInWithEmailAndPassword(email, password)
-      .then((result) => {
+      .then((result: any) => {
         window.alert("You have been successfully logged in!");
          this.router.navigate(["/home"]);
       }).catch((error: any) => {

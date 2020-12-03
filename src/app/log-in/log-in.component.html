@@ -1,16 +1,19 @@
-<form [formGroup]="logInForm">  
-    <div class="container">
-      <label for="uname"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" formControlName="email" required>
-  
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" formControlName="password" required>
-  
-      <button (click)="logIn()" type="submit">Login</button>
-   
-    </div>
-  
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" class="cancelbtn">Cancel</button>
-    </div>
-  </form>
+<div  fxLayout="row" fxLayoutAlign="center center">
+  <form [formGroup]="logInForm">  
+      <div class="container">
+        <h1>Log In</h1>
+        <label for="uname"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" formControlName="email" required>
+    
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" formControlName="password" required>
+    
+        <button (click)="logIn()" type="submit">Login</button>
+     
+      </div>
+    
+      <div class="container" style="background-color:#f1f1f1">
+        <a [routerLink]="['/sign-up']" routerLinkActive="router-link-active" >No Account? Sign Up Here</a>
+      </div>
+    </form>
+</div>

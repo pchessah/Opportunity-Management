@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth/auth.service';
+import { UserService } from '../services/user/user.service';
+import { IUser } from '../interfaces/user'
 
 @Component({
   selector: 'app-sign-up',
@@ -10,21 +12,28 @@ import { AuthService } from '../services/auth/auth.service';
 export class SignUpComponent implements OnInit {
 
   signUpForm: any;
+  user: IUser = { name:"", accountName:""}
 
-  constructor( private fb: FormBuilder, private authService: AuthService) { }
+  constructor( private fb: FormBuilder, private authService: AuthService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.signUpForm = this.fb.group({
-      firstName: ['', Validators.required],
-      secondName: ['', Validators.required],
+      userName: ['', Validators.required],
       email: ['', Validators.required],
+      accountName: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(10)]],
       password2: ['', [Validators.required, Validators.minLength(10)]]
     });
   }
 
   saveNewUser():void {
+    this.user = {
+      name: this.signUpForm.value.userName,
+      accountName: this.signUpForm.value.accountName
+    }
+    
     this.authService.SignUp(this.signUpForm.value.email, this.signUpForm.value.password)
+    this.userService.createUser({name: this.signUpForm.value.userName, accountName: this.signUpForm.value.accountName})
   }
 
 }
