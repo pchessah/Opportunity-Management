@@ -6,7 +6,7 @@ form {
   }
   
   /* Full-width inputs */
-  input[type=text], input[type=password], textarea {
+  input[type=text], input[type=number], input[type=password], textarea, select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

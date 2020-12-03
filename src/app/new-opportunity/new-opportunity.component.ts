@@ -26,7 +26,9 @@ export class NewOpportunityComponent implements OnInit {
     this.newOpportunityForm = this.fb.group({
       opportunityName: ['', Validators.required],
       details: ['', Validators.required],
-      accountName: [this.user]
+      accountName: [this.user],
+      stage:[""],
+      amount:[""]
     })
   }
 

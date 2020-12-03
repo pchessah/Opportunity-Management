@@ -4,6 +4,16 @@
           <h1>New Opportunity</h1>
           <label for="uname"><b>Name</b></label>
           <input type="text" placeholder="Enter Opportunity Name" formControlName="opportunityName" required>
+
+          <label for="num"><b>Amount (Ksh)</b></label>
+          <input type="number" placeholder="Enter Amount" formControlName="amount" required>
+
+          <label for="stage"><b>Stage</b></label>
+          <select formControlName="stage">
+            <option>Discovery</option>
+            <option>Proposal shared</option>
+            <option>Negotiation</option>
+          </select>
       
           <label for="psw"><b>Details</b></label>
           <textarea placeholder="Enter Details" formControlName="details" required> </textarea>
