@@ -6,9 +6,9 @@ import { Router } from '@angular/router'
   providedIn: 'root',
 })
 export class OpportunitiesService {
+  duplicateOpportunitiesArr: any[] = []
   opportunities: any[] = []
   constructor(private firestore: AngularFirestore, public router: Router) {}
-
 
   createOpportunity(opportunity: any) {
     return this.firestore
@@ -23,20 +23,22 @@ export class OpportunitiesService {
       })
   }
 
-  async getOpportunities(accountName: any){
+  async getOpportunities(accountName: any) {
     const query = await this.firestore.firestore
-      .collection("opportunities")
-      .where("accountName", "==", accountName )
+      .collection('opportunities')
+      .where('accountName', '==', accountName)
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-            this.opportunities = []
-            this.opportunities.push(doc.data())
-        });
-    }).catch(function(error) {
-      console.log("Error getting documents: ", error);
-    })
-
- 
+          this.duplicateOpportunitiesArr.push(doc.data())
+          this.opportunities = this.duplicateOpportunitiesArr.filter(
+            (value, index) =>
+              this.duplicateOpportunitiesArr.indexOf(value) === index,
+          )
+        })
+      })
+      .catch(function (error) {
+        console.log('Error getting documents: ', error)
+      })
   }
 }

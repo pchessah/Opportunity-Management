@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { MatTableModule } from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table';
+import {MatCardModule} from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,7 +35,7 @@ import { NewOpportunityComponent } from './new-opportunity/new-opportunity.compo
     AngularFireAuthModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MatTableModule
+    MatTableModule, MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -33,10 +33,6 @@ export class NewOpportunityComponent implements OnInit {
   }
 
   save() {
-    console.log(this.newOpportunityForm.value.accountName);
-
-      return this.opportunityService.createOpportunity(this.newOpportunityForm.value)
-      
-  
+      return this.opportunityService.createOpportunity(this.newOpportunityForm.value)  
   }
 }
