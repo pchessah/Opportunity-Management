@@ -2,12 +2,11 @@ import { Injectable } from '@angular/core'
 import { AngularFireAuth } from '@angular/fire/auth'
 import {
   AngularFirestore,
-  AngularFirestoreDocument,
+
 } from '@angular/fire/firestore'
 import * as firebase from 'firebase'
-import { first, tap } from 'rxjs/operators'
+import { first } from 'rxjs/operators'
 
-import { IUser } from '../../interfaces/user'
 
 @Injectable({
   providedIn: 'root',
@@ -34,7 +33,7 @@ export class UserService {
     })
   }
 
-  createUser(user: IUser) {
+  createUser(user: any) {
     return this.firestore.collection('users').add(user)
   }
 }

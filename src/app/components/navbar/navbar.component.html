@@ -1,1 +1,6 @@
-<p>navbar works!</p>
+<div class="topnav">
+    <a class="active">Opportunity Management System</a>
+    <a [routerLink]="['/home']" routerLinkActive="router-link-active" >Dashboard</a>
+    <a (click)="logOut()">Log Out</a>
+  </div>
+  

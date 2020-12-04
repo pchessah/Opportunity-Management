@@ -30,8 +30,8 @@ export class OpportunitiesService {
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-            this.opportunities.push(doc.data())  
-            console.log(this.opportunities);          
+            this.opportunities = []
+            this.opportunities.push(doc.data())
         });
     }).catch(function(error) {
       console.log("Error getting documents: ", error);

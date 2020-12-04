@@ -45,6 +45,13 @@ export class AuthService {
       })
   }
 
+  SignOut() {
+    return this.afAuth.signOut().then(() => {
+      window.alert('Good Bye! You have Been Logged Out!')
+      this.router.navigate(['/']);
+    })
+  }
+
   getCurrentUser(): any {
     firebase.default.auth().onAuthStateChanged(async (user) => {
       this.loggedInUser = user?.email
@@ -55,7 +62,7 @@ export class AuthService {
        
       if (!query.empty) {
         const snapshot = query.docs[0]
-        const data = snapshot.data()       
+        const data = snapshot.data()     
         this.accountName = data.accountName;
       }
     })  

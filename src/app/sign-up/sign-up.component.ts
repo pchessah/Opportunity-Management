@@ -22,6 +22,7 @@ export class SignUpComponent implements OnInit {
       userName: ['', Validators.required],
       email: ['', Validators.required],
       accountName: ['', Validators.required],
+      address: ["", Validators.required],
       password: ['', [Validators.required, Validators.minLength(10)]],
       password2: ['', [Validators.required, Validators.minLength(10)]],
     });
@@ -36,6 +37,7 @@ export class SignUpComponent implements OnInit {
       name: this.signUpForm.value.userName,
       accountName: this.signUpForm.value.accountName,
       email: this.signUpForm.value.email,
+      address: this.signUpForm.value.address
     });
   }
 }
