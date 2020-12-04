@@ -44,7 +44,9 @@ export class HomeComponent implements OnInit {
           ...(e.payload.doc.data() as {}),
         }
       })
-      this.dataSource = this.opportunities
+    
+      this.dataSource = this.opportunities.filter((item) => item.accountName == this.authService.accountName)
+   
       this.proposalArr = this.dataSource.filter(
         (item) => item.stage == 'Proposal shared',
       )
@@ -62,6 +64,7 @@ export class HomeComponent implements OnInit {
     this.user = this.authService.accountName
     this.email = this.authService.loggedInUser
     this.getAllOpportunities()
+    
   }
 
   viewAll() {

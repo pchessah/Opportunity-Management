@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logOut(){
+    this.authService.accountName = undefined
     this.authService.SignOut()
 
   }

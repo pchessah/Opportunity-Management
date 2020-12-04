@@ -23,22 +23,6 @@ export class OpportunitiesService {
       })
   }
 
-  // async getOpportunities(accountName: any) {
-    
-  //   const query = await this.firestore.firestore
-  //     .collection('opportunities')
-  //     .where('accountName', '==', accountName)
-  //     .get()
-  //     .then((querySnapshot) => {
-  //       querySnapshot.forEach((doc) => {
-  //         console.log(doc.data());
-  //         this.opportunities.push(doc.data())
-  //       })
-  //     })
-  //     .catch(function (error) {
-  //       console.log('Error getting documents: ', error)
-  //     })
-  // }
 
   getOpportunities(){
     return this.firestore.collection("opportunities").snapshotChanges()
